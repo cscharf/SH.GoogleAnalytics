@@ -1,0 +1,13 @@
+﻿Name: GoogleAnalytics
+AntiForgery: enabled
+Author: Chad Scharf
+Website: http://www.scharfholdings.com
+Version: 1.0.2
+OrchardVersion: 1.0.20
+Description: The Google Analytics module enables the ability to automatically include the Google Analytics tracking script on every page using simple configuration settings. Options include the use of either the legacy tracking js code or the new asynchronous tracking js code, allowing multiple sub/domain support, and turning off tracking for admin pages. Please submit bugs using form located at [http://www.scharfholdings.com/About-Us/Contact-Us]
+Features:
+    SH.GoogleAnalytics:
+        Name: Google Analytics
+        Description: Includes the Google Analytics tracking code into the site
+        Category: Google
+        Dependencies: Settings

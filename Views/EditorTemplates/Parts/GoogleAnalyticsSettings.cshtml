@@ -1,0 +1,23 @@
+﻿@model SH.GoogleAnalytics.Models.GoogleAnalyticsSettingsPart
+@using SH.GoogleAnalytics.Models;
+
+<fieldset>
+	<legend>@T("Google Analytics")</legend>
+	<div>
+		<label for="@Html.FieldIdFor(m => m.GoogleAnalyticsKey)">@T("Google Analytics Tracking Key (UA-XXXXXXX-X)")</label>
+		@Html.EditorFor(m => m.GoogleAnalyticsKey)
+		@Html.ValidationMessage("GoogleAnalyticsKey", "*")
+	</div>
+	<div>
+		<label for="@Html.FieldIdFor(m => m.DomainName)">@T("Override Domain Name (optional)")</label>
+		@Html.EditorFor(m => m.DomainName)
+	</div>
+	<div>
+		@Html.EditorFor(m => m.UseAsyncTracking)
+		<label for="@Html.FieldIdFor(m => m.UseAsyncTracking)" class="forcheckbox">@T("Use Async Tracking")</label>
+	</div>
+	<div>
+		@Html.EditorFor(m => m.TrackOnAdmin)
+		<label for="@Html.FieldIdFor(m => m.TrackOnAdmin)" class="forcheckbox">@T("Include on /Admin Pages")</label>
+	</div>
+</fieldset>
