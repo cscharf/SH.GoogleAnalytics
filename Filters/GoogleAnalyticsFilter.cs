@@ -27,8 +27,7 @@ namespace SH.GoogleAnalytics.Filters {
 				return;
 
 			//Determine if we're on an admin page
-			//TODO: testing for Contains("/admin") is probably a poor choice of test, but it works and follows navigation convention for Orchard so far.
-			bool isAdmin = filterContext.HttpContext.Request.Url.OriginalString.ToLower().Contains("/admin");
+            bool isAdmin = Orchard.UI.Admin.AdminFilter.IsApplied(filterContext.RequestContext);
 
 			//Get our part data/record if available for rendering scripts
 			var part = _orchardServices.WorkContext.CurrentSite.As<GoogleAnalyticsSettingsPart>();
