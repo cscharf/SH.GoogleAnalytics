@@ -2,8 +2,8 @@
 AntiForgery: enabled
 Author: Chad Scharf
 Website: https://github.com/ScharfHoldings/SH.GoogleAnalytics
-Version: 1.0.3
-OrchardVersion: 1.0.20
+Version: 1.0.4
+OrchardVersion: 1.4.0
 Description: The Google Analytics module enables the ability to automatically include the Google Analytics tracking script on every page using simple configuration settings. Options include the use of either the legacy tracking js code or the new asynchronous tracking js code, allowing multiple sub/domain support, and turning off tracking for admin pages. Please fork, contribute or submit bugs/issues on GitHub @ [https://github.com/ScharfHoldings/SH.GoogleAnalytics]. More about Scharf Holdings, LLC can be found at http://www.scharfholdings.com.
 Features:
     SH.GoogleAnalytics:
