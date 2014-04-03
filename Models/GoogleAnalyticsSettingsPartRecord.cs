@@ -23,6 +23,8 @@ namespace SH.GoogleAnalytics.Models {
 		/// </summary>
 		public virtual bool TrackOnAdmin { get; set; }
 
+		public virtual bool UseDoubleClick { get; set; }
+
 		/// <summary>
 		/// Initializes a new instance of the <see cref="GoogleAnalyticsSettingsPartRecord"/> class. Sets the default value
 		/// of <see cref="P:UseAsyncTracking"/> to <c>true</c> and <see cref="P:TrackOnAdmin"/> to <c>false</c>.
@@ -30,6 +32,7 @@ namespace SH.GoogleAnalytics.Models {
 		public GoogleAnalyticsSettingsPartRecord() {
 			UseAsyncTracking = true;
 			TrackOnAdmin = false;
+			UseDoubleClick = false;
 		}
 	}
 }

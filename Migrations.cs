@@ -16,5 +16,12 @@ namespace SH.GoogleAnalytics {
 				);
 			return 1;
 		}
+		
+		public int UpdateFrom1() {
+            SchemaBuilder.AlterTable("GoogleAnalyticsSettingsPartRecord", table => table
+                .AddColumn<bool>("UseDoubleClick")
+           );
+            return 2;
+        }
 	}
 }

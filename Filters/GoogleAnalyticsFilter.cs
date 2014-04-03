@@ -24,8 +24,8 @@ namespace SH.GoogleAnalytics.Filters {
 		public void OnResultExecuting(ResultExecutingContext filterContext) {
 			var viewResult = filterContext.Result as ViewResult;
 			if (viewResult == null)
-				return;
-
+				return;	
+				
 			//Determine if we're on an admin page
             bool isAdmin = Orchard.UI.Admin.AdminFilter.IsApplied(filterContext.RequestContext);
 
@@ -46,7 +46,10 @@ namespace SH.GoogleAnalytics.Filters {
 				script.AppendLine("_gaq.push([\"_trackPageview\"]);");
 				script.AppendLine("(function() {");
 				script.AppendLine("\tvar ga=document.createElement(\"script\");ga.type=\"text/javascript\";ga.async=true;");
-				script.AppendLine("\tga.src=((\"https:\" == document.location.protocol)?\"https://ssl\":\"http://www\")+\".google-analytics.com/ga.js\";");
+				if (part.UseDoubleClick)
+					script.AppendLine("\tga.src=((\"https:\" == document.location.protocol)?\"https://\":\"http://\")+\"stats.g.doubleclick.net/dc.js\";");
+				else
+					script.AppendLine("\tga.src=((\"https:\" == document.location.protocol)?\"https://ssl\":\"http://www\")+\".google-analytics.com/ga.js\";");
 				script.AppendLine("\tvar s=document.getElementsByTagName(\"script\")[0];s.parentNode.insertBefore(ga, s);");
 				script.AppendLine("})();");
 				script.AppendLine("</script>");
@@ -56,8 +59,15 @@ namespace SH.GoogleAnalytics.Filters {
 			else {
 				StringBuilder script = new StringBuilder(700);
 				script.AppendLine("<script type=\"text/javascript\">");
-				script.AppendLine("var gaJsHost=((\"https:\"==document.location.protocol)?\"https://ssl.\":\"http://www.\");");
-				script.AppendLine("document.write(unescape(\"%3Cscript src='\"+gaJsHost+\"google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E\"));");
+				
+				if (part.UseDoubleClick) {
+					script.AppendLine("var gaJsHost=((\"https:\"==document.location.protocol)?\"https://\":\"http://\");");
+					script.AppendLine("document.write(unescape(\"%3Cscript src='\"+gaJsHost+\"stats.g.doubleclick.net/dc.js' type='text/javascript'%3E%3C/script%3E\"));");
+				}
+				else {
+					script.AppendLine("var gaJsHost=((\"https:\"==document.location.protocol)?\"https://ssl.\":\"http://www.\");");
+					script.AppendLine("document.write(unescape(\"%3Cscript src='\"+gaJsHost+\"google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E\"));");
+				}
 				script.AppendLine("</script>");
 				script.AppendLine("<script type=\"text/javascript\">");
 				script.AppendLine("try {");
