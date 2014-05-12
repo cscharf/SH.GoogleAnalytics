@@ -20,4 +20,8 @@
 		@Html.EditorFor(m => m.TrackOnAdmin)
 		<label for="@Html.FieldIdFor(m => m.TrackOnAdmin)" class="forcheckbox">@T("Include on /Admin Pages")</label>
 	</div>
+	<div>
+		@Html.EditorFor(m => m.UseDoubleClick)
+		<label for="@Html.FieldIdFor(m => m.UseDoubleClick)" class="forcheckbox">@T("Use doubleclick.net instead of standard google-analytics.com")</label>
+	</div>
 </fieldset>

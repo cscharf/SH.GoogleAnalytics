@@ -2,6 +2,7 @@
 using Orchard.ContentManagement;
 
 namespace SH.GoogleAnalytics.Models {
+	
 	public class GoogleAnalyticsSettingsPart : ContentPart<GoogleAnalyticsSettingsPartRecord> {
 		/// <summary>
 		/// Gets or sets the Google Analytics tracking key used to perform analytics tracking.
@@ -36,5 +37,15 @@ namespace SH.GoogleAnalytics.Models {
 			get { return Record.TrackOnAdmin; }
 			set { Record.TrackOnAdmin = value; }
 		}
+		
+		/// <summary>
+		/// Gets or sets value indicating whether to use doubleclick.net instead of google-analytics.com
+		/// </summary>
+		public bool UseDoubleClick
+		{
+			get { return Record.UseDoubleClick; }
+			set { Record.UseDoubleClick = value; }
+		}
+		
 	}
 }
