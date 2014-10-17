@@ -13,15 +13,27 @@
 		@Html.EditorFor(m => m.DomainName)
 	</div>
 	<div>
-		@Html.EditorFor(m => m.UseAsyncTracking)
-		<label for="@Html.FieldIdFor(m => m.UseAsyncTracking)" class="forcheckbox">@T("Use Async Tracking")</label>
-	</div>
-	<div>
 		@Html.EditorFor(m => m.TrackOnAdmin)
 		<label for="@Html.FieldIdFor(m => m.TrackOnAdmin)" class="forcheckbox">@T("Include on /Admin Pages")</label>
 	</div>
 	<div>
+		@Html.EditorFor(m => m.UseUniversalAnalytics)
+		<label for="@Html.FieldIdFor(m => m.UseUniversalAnalytics)" class="forcheckbox">@T("Use the new Universal Analytics")</label>
+	</div>
+	<div>
+		@Html.EditorFor(m => m.UseEnhancedLinkAttribution)
+		<label for="@Html.FieldIdFor(m => m.UseEnhancedLinkAttribution)" class="forcheckbox">@T("Enable Enhanced Link Attribution (In-Page Analytics)")</label>
+	</div>
+	<div>
 		@Html.EditorFor(m => m.UseDoubleClick)
-		<label for="@Html.FieldIdFor(m => m.UseDoubleClick)" class="forcheckbox">@T("Use doubleclick.net instead of standard google-analytics.com")</label>
+		<label for="@Html.FieldIdFor(m => m.UseDoubleClick)" class="forcheckbox">@T("Enable Demographics and Interest Reports (Display Advertiser Features)")</label>
+	</div>
+	<div>
+		@Html.EditorFor(m => m.UseAsyncTracking)
+		<label for="@Html.FieldIdFor(m => m.UseAsyncTracking)" class="forcheckbox">@T("Use Async Tracking (Ignored if using Universal Analytics)")</label>
+	</div>
+	<div>
+		<label for="@Html.FieldIdFor(m => m.AdditionalScripts)">@T("Any additional script(s) that need to be inserted into the HEAD section of the page")</label>
+		@Html.TextAreaFor(m => m.AdditionalScripts)
 	</div>
 </fieldset>
